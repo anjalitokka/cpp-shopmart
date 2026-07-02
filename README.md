@@ -150,21 +150,45 @@ SHOPMART
 
 ---
 
-## 👤 Login
+## 🏠 Main Menu
+
+![Main Menu](screenshots/homescreen.png)
+
+---
+
+## 👤 Registration
+
+![Registration](screenshots/registration.png)
+
+---
+
+## 🔐 Login
 
 ![Login](screenshots/login.png)
 
 ---
 
-## 📦 Product Catalog
+## 📦 Product List
 
-![Products](screenshots/products.png)
+![Products](screenshots/products%20list.png)
 
 ---
 
-## 🔍 Product Search
+## 🔍 Search Product
 
-![Search](screenshots/search.png)
+![Search](screenshots/search%20product.png)
+
+---
+
+## 🛒 Add To Cart
+
+![Add To Cart](screenshots/addToCart.png)
+
+---
+
+## ✅ Product Added
+
+![Added](screenshots/productAddedToCart.png)
 
 ---
 
@@ -174,27 +198,27 @@ SHOPMART
 
 ---
 
-## 🛒 Shopping Cart
-
-![Cart](screenshots/cart.png)
-
----
-
 ## 💳 Checkout
 
-![Checkout](screenshots/checkout.png)
+![Checkout](screenshots/checkOut.png)
 
 ---
 
 ## 👨‍💼 Admin Dashboard
 
-![Admin](screenshots/admin-dashboard.png)
+![Admin](screenshots/adminAccess.png)
 
 ---
 
 ## ℹ️ About
 
 ![About](screenshots/about.png)
+
+---
+
+## 👋 Exit
+
+![Exit](screenshots/exit.png)
 
 ---
 

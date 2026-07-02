@@ -1,0 +1,11 @@
+*.exe
+
+invoice_*.txt
+
+users.txt
+orders.txt
+
+.vscode/
+
+*.o
+*.obj

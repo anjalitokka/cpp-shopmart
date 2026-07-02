@@ -1,45 +1,164 @@
 #include "user.h"
 
-void User::registerUser(){
-    ofstream file("users.text",ios::app);
+// Register User
+void User::registerUser()
+{
+    ofstream file("users.txt", ios::app);
 
-    cout<<"Enter username: ";
-    cin>>username;
+    cout << "\n========== USER REGISTRATION ==========\n";
 
-    cout<<"Enter password: ";
-    cin>>password;
+    cin.ignore();
 
-    file << username <<" "<<password<<endl;
+    cout << "Full Name      : ";
+    getline(cin, fullName);
+
+    cout << "Username       : ";
+    getline(cin, username);
+
+    cout << "Password       : ";
+    getline(cin, password);
+
+    cout << "Email          : ";
+    getline(cin, email);
+
+    cout << "Phone Number   : ";
+    getline(cin, phone);
+
+    cout << "Address        : ";
+    getline(cin, address);
+
+    file << fullName << "|"
+         << username << "|"
+         << password << "|"
+         << email << "|"
+         << phone << "|"
+         << address << endl;
 
     file.close();
 
-    cout<<"Registration successful!" << endl;
+    cout << "\nRegistration Successful!\n";
 }
 
-bool User::login(){
-    string u,p;
-    string fileuser,filepass;
+// Login
+bool User::login()
+{
+    string u, p;
+    string line;
 
-    cout<<"Enter username: ";
-    cin>>u;
-    cout<<"Enter password: ";
-    cin>>p;
+    cout << "\n========== LOGIN ==========\n";
 
-    ifstream file("users.text");
+    cout << "Username : ";
+    cin >> u;
 
-    while(file>>fileuser>>filepass){
-        if(u==fileuser && p ==filepass){
-            username =u;
-            password = p;
-            cout<<"Login Successful!"<<endl;
+    cout << "Password : ";
+    cin >> p;
+
+    ifstream file("users.txt");
+
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+
+        getline(ss, fullName, '|');
+        getline(ss, username, '|');
+        getline(ss, password, '|');
+        getline(ss, email, '|');
+        getline(ss, phone, '|');
+        getline(ss, address, '|');
+
+        if (u == username && p == password)
+        {
+            cout << "\nLogin Successful!\n";
+            file.close();
             return true;
         }
     }
-    cout<<"Invalid Credentials!"<<endl;
-    return false;
 
+    file.close();
+
+    cout << "\nInvalid Username or Password!\n";
+    return false;
 }
 
-string User::getUsername(){
+// Getters
+string User::getUsername() const
+{
     return username;
+}
+
+string User::getFullName() const
+{
+    return fullName;
+}
+
+string User::getEmail() const
+{
+    return email;
+}
+
+string User::getPhone() const
+{
+    return phone;
+}
+
+string User::getAddress() const
+{
+    return address;
+}
+
+// Setters
+void User::setFullName(string name)
+{
+    fullName = name;
+}
+
+void User::setEmail(string mail)
+{
+    email = mail;
+}
+
+void User::setPhone(string ph)
+{
+    phone = ph;
+}
+
+void User::setAddress(string addr)
+{
+    address = addr;
+}
+
+// Display Profile
+void User::displayProfile() const
+{
+    cout << "\n========== MY PROFILE ==========\n";
+
+    cout << "Name      : " << fullName << endl;
+    cout << "Username  : " << username << endl;
+    cout << "Email     : " << email << endl;
+    cout << "Phone     : " << phone << endl;
+    cout << "Address   : " << address << endl;
+
+    cout << "=================================\n";
+}
+
+// Edit Profile
+void User::editProfile()
+{
+    cin.ignore();
+
+    cout << "\n========== EDIT PROFILE ==========\n";
+
+    cout << "New Name      : ";
+    getline(cin, fullName);
+
+    cout << "New Email     : ";
+    getline(cin, email);
+
+    cout << "New Phone     : ";
+    getline(cin, phone);
+
+    cout << "New Address   : ";
+    getline(cin, address);
+
+    cout << "\nProfile Updated Successfully!\n";
 }
